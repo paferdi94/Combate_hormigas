@@ -85,6 +85,7 @@ public class MysqlDataSpImpl implements DataInterface {
         }
         return id;
     }
+    // insertar todos los datos
     public int insertAll(String strTabla,String tipo,double vida,double fuerza) throws Exception {
 
         ResultSet oResultSet;
@@ -242,6 +243,54 @@ public class MysqlDataSpImpl implements DataInterface {
         }
         return strResult;
     }
+    public String getHormiga(String strTabla, String strCampo, int id) throws Exception {
+        String strResult = null;
+        PreparedStatement oPreparedStatement = null;
+        ResultSet oResultSet;
+        try {
+            String strSQL = "SELECT " + strCampo + " FROM " + strTabla + " WHERE id=?";
+            oPreparedStatement = connection.prepareStatement(strSQL);
+            oPreparedStatement.setInt(1, id);
+            oResultSet = oPreparedStatement.executeQuery();
+            if (oResultSet.next()) {
+                strResult = oResultSet.getString(strCampo);
+            } else {
+                ExceptionBooster.boost(new Exception(this.getClass().getName() + ":getOne ERROR: ID not exists: " + id));
+            }
+        } catch (Exception ex) {
+            ExceptionBooster.boost(new Exception(this.getClass().getName() + ":getOne ERROR: Can't process query: " + ex.getMessage()));
+        } finally {
+            if (oPreparedStatement != null) {
+                oPreparedStatement.close();
+            }
+        }
+        return strResult;
+    }
+    
+    public double getHormigaD(String strTabla, String strCampo, int id) throws Exception {
+        double strResult = 0;
+        PreparedStatement oPreparedStatement = null;
+        ResultSet oResultSet;
+        try {
+            String strSQL = "SELECT " + strCampo + " FROM " + strTabla + " WHERE id=?";
+            oPreparedStatement = connection.prepareStatement(strSQL);
+            oPreparedStatement.setInt(1, id);
+            oResultSet = oPreparedStatement.executeQuery();
+            if (oResultSet.next()) {
+                strResult = oResultSet.getDouble(strCampo);
+            } else {
+                ExceptionBooster.boost(new Exception(this.getClass().getName() + ":getOne ERROR: ID not exists: " + id));
+            }
+        } catch (Exception ex) {
+            ExceptionBooster.boost(new Exception(this.getClass().getName() + ":getOne ERROR: Can't process query: " + ex.getMessage()));
+        } finally {
+            if (oPreparedStatement != null) {
+                oPreparedStatement.close();
+            }
+        }
+        return strResult;
+    }
+
 
     @Override
     public Boolean existsOne(String strTabla, int id) throws Exception {
