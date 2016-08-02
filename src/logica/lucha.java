@@ -7,7 +7,7 @@ import bDatos.ConectarDB;
 import bDatos.MysqlDataSpImpl;
 
 public class lucha {
-	
+
 	String tipo="";
     double vida=0;
     double fuerza=0;
@@ -19,7 +19,7 @@ public class lucha {
     MysqlDataSpImpl my = new MysqlDataSpImpl(c);
     int hor1 = 0;
     int hor2 = 0;
-    
+
 	public void lucha(int hormiga1, int hormiga2){
 		hor1 = hormiga1;
 		hor2 = hormiga2;
@@ -61,17 +61,17 @@ public class lucha {
 		}
         hormiga h_1 = new hormiga(tipo,vida,fuerza);
         hormiga h_2 = new hormiga(tipo2,vida2,fuerza2);
-        
+
         System.out.println("Van a luchar las hormigas....");
         System.out.println("Con Id "+hormiga1+" a nuestra derecha con las siguientes características:");
         System.out.println(h_1.getTipo()+" "+h_1.getVida()+" "+h_1.getFuerza());
         System.out.println("Y a nuestra izquierda on Id "+hormiga2+" con las siguientes características:");
         System.out.println(h_2.getTipo()+" "+h_2.getVida()+" "+h_2.getFuerza());
-        
+
         System.out.println("Comienza el combate");
         round(h_1,h_2);
 	}
-	
+
 	public void round(hormiga h1, hormiga h2){
 		double v1= h1.getVida();
 		double v2 = h2.getVida();
@@ -87,7 +87,7 @@ public class lucha {
 			v2 = vida2;
 			f1 = fuerza;
 			f2 = fuerza2;
-				
+
 			}
 		if(v1>v2){
 			try {
@@ -109,15 +109,15 @@ public class lucha {
 				}
 			}
 	}
-		
-		
-	
-		
-	
+
+
+
+
+
 	public boolean  combate(double v1,double v2,double f1,double f2){
-		
-		
-		for(int i = 0; i<3 ;i++){
+
+
+		for(int i = 0; i<10 ;i++){
 			int t1=turno();
 			int d1=turno();
 			if(t1 == 1){
@@ -133,9 +133,9 @@ public class lucha {
 						fuerza = f1;
 						vida2 = v2;
 						fuerza2 = f2;
-						return true;				
-					}			
-				}			
+						return true;
+					}
+				}
 			}else{
 				System.out.println("Ataca la hormiga con id "+hor2);
 				if(d1 == 1){
@@ -150,7 +150,7 @@ public class lucha {
 						vida2 = v2;
 						fuerza2 = f2;
 						return true;
-					}				
+					}
 				}
 			}
 		}
@@ -159,10 +159,10 @@ public class lucha {
 		vida2 = v2;
 		fuerza2 = f2;
 		return false;
-	
-		
+
+
 	}
-	
+
 	public int turno(){
 		return (int)(Math.random()*2)+1;
 	}
