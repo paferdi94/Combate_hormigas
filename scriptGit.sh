@@ -14,5 +14,5 @@
 	echo "Introduce como se llama la carpeta del repositorio:"
 	read TXT
 	echo "Introduce el nombre de la rama en que la deseas subir:"
-	echo RAMA
+	read RAMA
  git push https://github.com/paferdi94/$TXT.git $RAMA
