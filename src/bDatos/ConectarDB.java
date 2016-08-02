@@ -8,7 +8,7 @@ import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
- 
+
 public class ConectarDB {
 	private static Connection conexion = null;
     private static String bd = "Hormigas"; // Nombre de BD.
@@ -31,7 +31,7 @@ public class ConectarDB {
         }
         return conexion;
     }
- 
+
     /**
      * Método para establecer la conexión con la base de datos.
      *
@@ -47,7 +47,7 @@ public class ConectarDB {
         }
         return st;
     }
- 
+
     /**
      * Método para realizar consultas del tipo: SELECT * FROM tabla WHERE..."
      *
@@ -66,7 +66,7 @@ public class ConectarDB {
         }
         return rs;
     }
- 
+
     /**
      * Método para realizar consultas de actualización, creación o eliminación.
      *
@@ -85,7 +85,7 @@ public class ConectarDB {
         }
         return rs;
     }
- 
+
     /**
      * Método para cerrar la consula
      *
@@ -100,7 +100,7 @@ public class ConectarDB {
             }
         }
     }
- 
+
     /**
      * Método para cerrar la conexión.
      *

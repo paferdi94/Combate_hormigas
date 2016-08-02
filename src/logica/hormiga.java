@@ -5,12 +5,12 @@ public class hormiga extends Thread{
 	double vida;
 	double fuerza;
 	String tipo;
-	
+
 	public void run(){
 		// interaccion de lucha entre una hormiga con las demas mientras haya hormigas en la base de datos o hasta que la hormiga mue
 	}
-	
-	
+
+
 	public hormiga(String t,double v, double f){
 		this.tipo = t;
 		this.vida = v;
@@ -29,7 +29,7 @@ public class hormiga extends Thread{
 	public double getFuerza() {
 		return fuerza;
 	}
-	
+
 	public long getId(){
 		return this.id;
 	}
@@ -48,7 +48,7 @@ public class hormiga extends Thread{
 	public void setId(int id){
 		this.id = id;
 	}
-	
-	
+
+
 
 }

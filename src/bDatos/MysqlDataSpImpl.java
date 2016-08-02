@@ -266,7 +266,7 @@ public class MysqlDataSpImpl implements DataInterface {
         }
         return strResult;
     }
-    
+
     public double getHormigaD(String strTabla, String strCampo, int id) throws Exception {
         double strResult = 0;
         PreparedStatement oPreparedStatement = null;
@@ -598,7 +598,7 @@ public class MysqlDataSpImpl implements DataInterface {
                 int maxPaginas = new Double(intCuenta / intRegsPerPage).intValue();
                 intPagina = Math.min(intPagina - 1, maxPaginas) + 1;
                 intOffset = Math.max(((intPagina - 1) * intRegsPerPage), 0);
-                //--                        
+                //--
                 if (hmOrder != null) {
                     strSQL += " ORDER BY";
                     for (Map.Entry oPar : hmOrder.entrySet()) {
@@ -637,7 +637,7 @@ public class MysqlDataSpImpl implements DataInterface {
                 int maxPaginas = new Double(intCuenta / intRegsPerPage).intValue();
                 intPagina = Math.min(intPagina - 1, maxPaginas) + 1;
                 intOffset = Math.max(((intPagina - 1) * intRegsPerPage), 0);
-                //--                        
+                //--
                 strTabla += " LIMIT " + intOffset + " , " + intRegsPerPage;
                 oResultSet = oStatement.executeQuery(strTabla);
                 while (oResultSet.next()) {
